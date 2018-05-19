@@ -27,7 +27,7 @@ public class FeedbackApplicationTests {
 		long millis = System.currentTimeMillis();
 		ResponseInfo actual = commentService.persistComment(new Comment("This is a good product", "123", millis));
 		ResponseInfo expected = new ResponseInfo("COMMENT_POSTED", millis, "Comment posted successfully");
-		Assert.assertEquals(expected.toString(), actual.toString());
+		Assert.assertEquals(expected.toString().intern(), actual.toString().intern());
 	}
 
 	@Test
@@ -36,7 +36,7 @@ public class FeedbackApplicationTests {
 		ResponseInfo actual = commentService.persistComment(new Comment("This is a good product. XXX", "123", millis));
 		ResponseInfo expected = new ResponseInfo("OBJECTIONAL_CONTENT", millis,
 				"Objectional content found in the post. The objectional word is :" + "XXX");
-		Assert.assertEquals(expected.toString(), actual.toString());
+		Assert.assertEquals(expected.toString().intern(), actual.toString().intern());
 	}
 
 }
