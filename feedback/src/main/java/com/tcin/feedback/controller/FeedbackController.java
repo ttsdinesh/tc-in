@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
  *         Created on 19-May-2018
  */
 @RestController
-// @RequestMapping(value = "feedback/v1")
+@RequestMapping(value = "feedback/v1")
 public class FeedbackController {
 
 	@Autowired
